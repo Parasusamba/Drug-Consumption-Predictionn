@@ -1,0 +1,84 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Drug Consumption Prediction</title>
+    <link href="{% static 'layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .bgded {
+            background-image: url('{% static "images/3.jpg" %}');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .heading {
+            font-size: 32px;
+            color: rgb(255,255,255);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        #pageintro {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .input100 {
+            font-size: 18px;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .btn {
+            font-size: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body id="top">
+    <div class="bgded">
+        <h3 class="heading">Dynamic Prediction of Drug Consumption Patterns Using Machine Learning Techniques</h3>
+        <div id="pageintro" class="hoc clear">
+            <article>
+                <form action="input" method="POST" enctype="multipart/form-data" class="login100-form validate-form">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label class="label-input100" for="name">Name</label>
+                        <input class="input100" type="text" id="name" name="name" style="color: black;" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="label-input100" for="password">Password</label>
+                        <input class="input100" type="password" id="password" name="password" style="color: black;" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn">LOGIN</button>
+                    </div>
+                </form>
+            </article>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPTS -->
+    <script src="{% static 'layout/scripts/jquery.min.js' %}"></script>
+    <script src="{% static 'layout/scripts/jquery.backtotop.js' %}"></script>
+    <script src="{% static 'layout/scripts/jquery.mobilemenu.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Drug Consumption Prediction</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+    <style>
+        body {
+            background: url("{% static 'images/02.jpeg' %}") no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+
+        .container-login100 {
+            width: 100%;
+            max-width: 550px;
+            background-color: rgba(0, 0, 0, 0.85);
+            border-radius: 15px;
+            padding: 0px;  /* Reduced top space */
+            box-shadow: 0 4px 0px rgba(0, 0, 0, 0.5);
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .login100-form-title {
+            text-align: center;
+            color: #000;  /* Black Title */
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .section-title {
+            color: #000;  /* Black Subheading */
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-size: 18px;
+        }
+
+        .input-field {
+            margin-bottom: 15px;
+        }
+
+        .input-field label {
+            color: #000; 
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .input100 {
+            background-color: #f0f0f0; 
+            color: #333; 
+            border: 1px solid #00ff00;
+            border-radius: 5px;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .login100-form-btn {
+            background-color: #00ff00;
+            color: #000;
+            width: 100%;
+            border: none;
+            border-radius: 25px;
+            padding: 12px;
+            font-weight: bold;
+        }
+
+        .login100-form-btn:hover {
+            background-color: #00cc00;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <form action='output' method="POST" enctype="multipart/form-data" class="login100-form validate-form">
+                {% csrf_token %}
+                <span class="login100-form-title">
+                    Drug Consumption Prediction
+                </span>
+
+                <div class="section-title">Provide Details</div>
+
+                <!-- Input Fields with Black Labels -->
+                <div class="input-field">
+                    <label for="AGE">AGE</label>
+                    <input placeholder="Enter your age" name="AGE" id="AGE" type="text" class="validate input100">
+                </div>
+
+                <div class="input-field">
+                    <label for="Gender">Gender</label>
+                    <input placeholder="Enter your gender" name="Gender" id="Gender" type="text" class="validate input100">
+                </div>
+
+                <div class="input-field">
+                    <label for="Education">Education</label>
+                    <input placeholder="Education level" name="Education" id="Education" type="text" class="validate input100">
+                </div>
+
+                <div class="input-field">
+                    <label for="Country">Country</label>
+                    <input placeholder="Your country" name="Country" id="Country" type="text" class="validate input100">
+                </div>
+
+                <div class="input-field">
+                    <label for="Ethnicity">Ethnicity</label>
+                    <input placeholder="Your ethnicity" name="Ethnicity" id="Ethnicity" type="text" class="validate input100">
+                </div>
+
+                <div class="input-field">
+                    <label for="Nscore">Nscore</label>
+                    <input placeholder="Enter Nscore" name="Nscore" id="Nscore" type="text" class="validate input100">
+                </div>
+
+                <div class="input-field">
+                    <label for="Escore">Escore</label>
+                    <input placeholder="Enter Escore" name="Escore" id="Escore" type="text" class="validate input100">
+                </div>
+
+                <div class="input-field">
+                    <label for="Oscore">Oscore</label>
+                    <input placeholder="Enter Oscore" name="Oscore" id="Oscore" type="text" class="validate input100">
+                </div>
+
+                <div class="input-field">
+                    <label for="AScore">AScore</label>
+                    <input placeholder="Enter AScore" name="AScore" id="AScore" type="text" class="validate input100">
+                </div>
+
+                <div class="input-field">
+                    <label for="Cscore">Cscore</label>
+                    <input placeholder="Enter Cscore" name="Cscore" id="Cscore" type="text" class="validate input100">
+                </div>
+
+                <div class="input-field">
+                    <label for="Impulsive">Impulsive</label>
+                    <input placeholder="Enter Impulsive score" name="Impulsive" id="Impulsive" type="text" class="validate input100">
+                </div>
+
+                <div class="input-field">
+                    <label for="SS">SS</label>
+                    <input placeholder="Enter SS score" name="SS" id="SS" type="text" class="validate input100">
+                </div>
+
+                <!-- Algorithm Selection -->
+                <div class="input-field">
+                    <label for="algo">Select Algorithm</label>
+                    <select class="input100" name="algo">
+                        <option value='svm'>RF Classifier</option>
+                        <option value='xgb'>XGBoost Classifier</option>
+                    </select>
+                </div>
+
+                <!-- Predict Button -->
+                <div class="container-login100-form-btn">
+                    <button class="login100-form-btn">Predict</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
